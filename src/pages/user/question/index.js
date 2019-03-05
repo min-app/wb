@@ -1,10 +1,12 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { AtTabs, AtTabsPane } from 'taro-ui'
 import { connect } from '@tarojs/redux'
+import { AtTabs, AtTabsPane } from 'taro-ui'
+
+import BaseComponent from '@components/common/base'
+import Item from '@components/list/item'
 
 import { asyncFetch } from '@actions/question'
-import Item from '@components/list/item'
 
 import './index.scss'
 
@@ -15,23 +17,11 @@ import './index.scss'
     dispatch(asyncFetch(page))
   }
 }))
-class UserQuestion extends Component {
+class UserQuestion extends BaseComponent {
   tabList = [
     { title: '我发起的' },
     { title: '我接受的' }
   ]
-
-  componentWillMount () {
-    this.loadMore()
-  }
-
-  onPullDownRefresh () {
-    this.loadMore()
-  }
-
-  onReachBottom () {
-    this.loadMore(false)
-  }
 
   loadMore (refetch = true) {
     if (refetch) {

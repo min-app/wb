@@ -3,8 +3,7 @@ import moment from 'moment'
 
 import {
   FETCH,
-  FETCH_REPLY,
-  DETAIL
+  FETCH_REPLY
 } from '../constants/question'
 import { names, words, avatars, rand, numbers, stars } from './data'
 
@@ -52,30 +51,6 @@ export const asyncFetch = (page) => {
       Taro.stopPullDownRefresh()
       dispatch(fetch(page))
     }, 1000)
-  }
-}
-
-export const getInfo = () => {
-  const r = rand(10)
-  let random = rand(50)
-  const word = []
-  while (random > 0) {
-    random --
-    word.push(words[rand(10)])
-  }
-
-  const detail = {
-    avatar: avatars[r],
-    name: names[r],
-    count: numbers[r],
-    star: stars[r],
-    desc: word.join(),
-    followed: r % 2 === 0
-  }
-
-  return {
-    type: DETAIL,
-    detail
   }
 }
 

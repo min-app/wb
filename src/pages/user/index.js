@@ -2,9 +2,9 @@ import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { AtGrid, AtAvatar, AtButton } from 'taro-ui'
 
-import './index.scss'
-
 import Body from '@components/body'
+
+import './index.scss'
 
 class My extends Component {
   config = {

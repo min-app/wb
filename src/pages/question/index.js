@@ -1,10 +1,11 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, ScrollView } from '@tarojs/components'
-import { AtList, AtListItem, AtCard, AtButton } from 'taro-ui'
 import { connect } from '@tarojs/redux'
+import { AtList, AtListItem, AtCard, AtButton } from 'taro-ui'
 
 import { asyncFetch } from '@actions/question'
 
+import BaseComponent from '@components/common/base'
 import Body from '@components/body'
 import Item from '@components/list/item'
 
@@ -15,24 +16,9 @@ import Item from '@components/list/item'
     dispatch(asyncFetch(page))
   }
 }))
-class Question extends Component {
-  props = {
-    page: 1
-  }
+class Question extends BaseComponent {
   config = {
     navigationBarTitleText: '问题'
-  }
-
-  componentWillMount() {
-    this.refetch()
-  }
-
-  onPullDownRefresh () {
-    this.refetch()
-  }
-  
-  onReachBottom () {
-    this.props.fetch(++this.props.page)
   }
 
   onClick () {
@@ -41,11 +27,6 @@ class Question extends Component {
     })
   }
   
-  refetch () {
-    this.props.page = 1
-    this.props.fetch(this.props.page)
-  }
-
   render () {
     return (
       <Body

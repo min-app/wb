@@ -5,7 +5,7 @@ import { AtButton } from 'taro-ui'
 
 import Item from '@components/list/item/mult'
 
-import { getInfo } from '@actions/professor' 
+import { getInfo } from '@actions/professor'
 
 @connect(({ professor: { detail } }) => ({
   detail

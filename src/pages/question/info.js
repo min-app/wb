@@ -3,49 +3,33 @@ import { View } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
 import { AtButton } from 'taro-ui'
 
+import BaseComponent from '@components/common/base'
 import Item from '@components/list/item/mult'
 import ReplyItem from '@components/list/item/reply'
 
-import { fetchReply, getInfo } from '@actions/question'
+import { fetchReply } from '@actions/question'
+import { getInfo } from '@actions/professor'
 
-@connect(({ question: { replyLists, detail } }) => ({
+@connect(({ question: { replyLists }, professor: { detail } }) => ({
   replyLists,
   detail
 }), (dispatch) => ({
-  fetchReply (page) {
+  fetch (page) {
     dispatch(fetchReply(page))
   },
   getInfo () {
     dispatch(getInfo())
   }
 }))
-class QuestionInfo extends Component {
+class QuestionInfo extends BaseComponent {
 
   componentWillMount () {
     this.props.getInfo()
     this.loadMore()
   }
 
-  onPullDownRefresh () {
-    this.loadMore()
-  }
-  
-  onReachBottom () {
-    this.loadMore(false)
-  }
-
   onBtnClick () {
     console.log(123)
-  }
-
-  loadMore (refetch = true) {
-    if (refetch) {
-      this.props.page = 1
-    } else {
-      this.props.page ++
-    }
-    
-    this.props.fetchReply(this.props.page)
   }
 
   render () {

@@ -1,13 +1,11 @@
 import { 
   FETCH,
-  FETCH_REPLY,
-  DETAIL
+  FETCH_REPLY
 } from '../constants/question'
 
 const INITIAL_STATE = {
   lists: [],
-  replyLists: [],
-  detail: {}
+  replyLists: []
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -21,11 +19,6 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         replyLists: action.page > 1 ? [...state.replyLists, ...action.replyLists] : action.replyLists
-      }
-    case DETAIL:
-      return {
-        ...state,
-        detail: action.detail
       }
     default:
       return state
