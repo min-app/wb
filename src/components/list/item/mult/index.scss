@@ -1,0 +1,65 @@
+@import '@styles/main.scss';
+
+.item-mult {
+    display: flex;
+    align-items: flex-start;
+    background-color: $colorWhite;
+    // margin-top: $marginL;
+    // &::after {
+    //     content: "";
+    //     position: absolute;
+    //     height: 1px;
+    //     width: 80%;
+    //     left: 10%;
+    //     background-color: red;
+    // }
+    // &:first-child {
+    //     margin-top: 0;
+    // }
+    .item-mult-left {
+        padding: $margin;
+        image {
+            height: $imgSizeL;
+            width: $imgSizeL;
+            border-radius: 50%;
+        }
+    }
+    .item-mult-right {
+        flex: 1;
+        padding: $marginS;
+        width: 80%;
+        .top {
+            display: flex;
+            align-items: center;
+            .main {
+                flex: 1;
+                .title {
+                    display: block;
+                }
+                .desc {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    color: $colorGray;
+                    font-size: 28px;
+                }
+                text {
+                    margin-left: $margin / 2;
+                }
+                .d2 {
+                    margin-left: $margin;
+                }
+            }
+            .arrow {
+                margin-right: $marginS;
+            }
+        }
+        .desc {
+            margin-top: $marginS;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 99%;
+        }
+    }
+}

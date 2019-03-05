@@ -1,0 +1,31 @@
+@import '@styles/main.scss';
+
+.item-reply {
+    display: flex;
+    align-items: flex-start;
+    background-color: $colorWhite;
+    .item-reply-left {
+        padding: $margin;
+        image {
+            height: $imgSizeL;
+            width: $imgSizeL;
+            border-radius: 50%;
+        }
+    }
+    .item-reply-right {
+        flex: 1;
+        padding: $marginS;
+        .op {
+            display: flex;
+            color: $colorLine;
+            font-size: $fontSizeL;
+            margin-top: $marginS;
+            .left {
+                flex: 1;
+            }
+            .right {
+                margin-right: $margin * 2;
+            }
+        }
+    }
+}
